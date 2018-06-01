@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-other-component',
@@ -6,15 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./other-component.component.scss']
 })
 export class OtherComponentComponent implements OnInit {
+  @Output()
+  changeInput: EventEmitter<string> = new EventEmitter();
+  value: string;
 
-  value = 'test';
-
-  constructor() { }
+  constructor() {
+    this.value = 'test';
+  }
 
   ngOnInit() {
   }
 
   handleInput($event) {
-    this.value = $event.value;
+    this.value = $event.target.value;
+    this.changeInput.emit(this.value);
   }
 }

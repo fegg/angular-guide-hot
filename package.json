@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "hmr": "ng serve --hmr --configuration=hmr"
+    "hmr": "ng serve --hmr --configuration=hmr --port 8888"
   },
   "private": true,
   "dependencies": {
